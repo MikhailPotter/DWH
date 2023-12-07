@@ -13,6 +13,7 @@ services:
       - ./init-script:/etc/postgresql/init-script
       - ./createdb.sql:/docker-entrypoint-initdb.d/createdb.sql
       - ./createview.sql:/docker-entrypoint-initdb.d/createview.sql
+      - ./init-script/init.sh:/docker-entrypoint-initdb.d/init.sh
     ports:
       - "5432:5432"
     healthcheck:

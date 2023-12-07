@@ -38,11 +38,11 @@ CREATE TABLE system.products(
     
     CONSTRAINT fk_categories
       FOREIGN KEY(category_id) 
-      REFERENCES categories(category_id),
+      REFERENCES system.categories(category_id),
       
     CONSTRAINT fk_manufacturers
       FOREIGN KEY(manufacturer_id)
-      REFERENCES manufacturers(manufacturer_id)
+      REFERENCES system.manufacturers(manufacturer_id)
 );
 
 CREATE TABLE system.price_change(
@@ -51,7 +51,7 @@ CREATE TABLE system.price_change(
     new_price NUMERIC(9,2) NOT NULL,
     CONSTRAINT fk_products
       FOREIGN KEY(product_id) 
-      REFERENCES products(product_id)
+      REFERENCES system.products(product_id)
 );
 
 CREATE TABLE system.deliveries(  
@@ -62,10 +62,10 @@ CREATE TABLE system.deliveries(
     product_id BIGINT,
     CONSTRAINT fk_stores
       FOREIGN KEY(store_id)
-      REFERENCES stores(store_id),
+      REFERENCES system.stores(store_id),
     CONSTRAINT fk_products
       FOREIGN KEY(product_id)
-      REFERENCES products(product_id)
+      REFERENCES system.products(product_id)
 );
 
 CREATE TABLE system.purchases(  
@@ -76,10 +76,10 @@ CREATE TABLE system.purchases(
     purchase_payment_type VARCHAR(255) NOT NULL,
     CONSTRAINT fk_stores
       FOREIGN KEY(store_id) 
-      REFERENCES stores(store_id),
+      REFERENCES system.stores(store_id),
     CONSTRAINT fk_customers
       FOREIGN KEY(customer_id)
-      REFERENCES customers(customer_id)
+      REFERENCES system.customers(customer_id)
     
 );
 
@@ -90,8 +90,8 @@ CREATE TABLE system.purchase_items(
     product_price NUMERIC(9,2) NOT NULL,
     CONSTRAINT fk_products
       FOREIGN KEY(product_id)
-      REFERENCES products(product_id),
+      REFERENCES system.products(product_id),
     CONSTRAINT fk_purchases
       FOREIGN KEY(purchase_id)
-      REFERENCES purchases(purchase_id)
+      REFERENCES system.purchases(purchase_id)
 );
