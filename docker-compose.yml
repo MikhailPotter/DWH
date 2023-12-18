@@ -1,6 +1,12 @@
 version: '3.7'
 
 services:
+
+  grafana:
+    image: grafana/grafana
+    ports:
+      - 3000:3000
+      
   postgres_master:
     container_name: postgresql_master
     image: postgres:14.5
