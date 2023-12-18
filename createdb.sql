@@ -4,7 +4,7 @@ CREATE TABLE system.stores(
     store_id serial PRIMARY KEY,
     store_name VARCHAR (255) NOT NULL,
     store_country VARCHAR (255) NOT NULL,
-    store_description VARCHAR (255) NOT NULL,
+    store_city VARCHAR (255) NOT NULL,
     store_address VARCHAR (255) NOT NULL
 );
 
